@@ -24,17 +24,15 @@ export default class FilterableArtistsContainer extends Component {
         this.setState({inputValue: e.target.value})
     }
 
-    filterArtists(artistArray) {
-
-    }
-
     render() {
+        const inputValue = this.state.inputValue;
+        const filteredArtists = this.props.artists.filter(artist => artist.name.match(inputValue));
         return (
             <div>
                 < FilterInput handleChange={this.handleChange} />
                 {console.log("props.artists: ", this.props.artists)}
 
-                < Artists artists = {this.filterArtists} />
+                < Artists artists = {filteredArtists} />
             </div>
 
 
